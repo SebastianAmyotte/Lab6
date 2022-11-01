@@ -29,9 +29,9 @@
                 <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="Orange" Grid.Row="2" Grid.Column="0" x:Name="Tile20" Text="" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="24"/>
                 <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="Yellow" Grid.Row="2" Grid.Column="1" x:Name="Tile21" Text="" HorizontalOptions="Center" VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="24"/>
                 <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="Green" Grid.Row="2" Grid.Column="2" x:Name="Tile22" Text="" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="24"/>
-
+                
             </Grid>
-
+            <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="Gray" Grid.Row="3" Grid.Column="1" x:Name="reset" Text="Reset" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="ResetButton" FontSize="24"/>
         </VerticalStackLayout>
     </ScrollView>
 
