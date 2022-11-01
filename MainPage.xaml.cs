@@ -9,7 +9,6 @@
  * 
  */
 
-using Lab6Starter;
 
 
 /// <summary>
@@ -58,6 +57,7 @@ public partial class MainPage : ContentPage
 
         if (gameOver)
         {
+            ticTacToe.IncrementScore(victor);
             CelebrateVictory(victor);
 
         }
@@ -99,6 +99,8 @@ public partial class MainPage : ContentPage
         //MessageBox.Show(Application.Current.MainWindow, String.Format("Congratulations, {0}, you're the big winner today", victor.ToString()));
         XScoreLBL.Text = String.Format("X's Score: {0}", ticTacToe.XScore);
         OScoreLBL.Text = String.Format("O's Score: {0}", ticTacToe.OScore);
+
+        //DisplayAlert("Congrats", $"{victor} is a big boy winner today", "OK");
 
         ResetGame();
     }

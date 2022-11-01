@@ -67,6 +67,17 @@ internal class TicTacToeGame
         }
     }
 
+    public void IncrementScore(Player victor)
+    {
+        if(victor == Player.X)
+        {
+            scores[1]++;
+        } else
+        {
+            scores[0]++;
+        }
+    }
+
     /// <summary>
     /// Resets the game
     /// </summary>
