@@ -103,12 +103,26 @@ public partial class MainPage : ContentPage
         ResetGame();
     }
 
+    private void ResetButton(object sender, EventArgs e)
+    {
+        //Reset game logic
+        ResetGame();
+    }
+
     /// <summary>
     /// Resets the grid buttons so their content is all ""
     /// </summary>
     private void ResetGame()
     {
-
+        //Reset lavels in all buttons
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                grid[i, j].Text = "";
+            }
+        }
+        ticTacToe.ResetGame();
     }
 
 }
