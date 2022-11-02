@@ -100,7 +100,7 @@ public partial class MainPage : ContentPage
         XScoreLBL.Text = String.Format("X's Score: {0}", ticTacToe.XScore);
         OScoreLBL.Text = String.Format("O's Score: {0}", ticTacToe.OScore);
 
-        //DisplayAlert("Congrats", $"{victor} is a big boy winner today", "OK");
+        DisplayAlert($"Congratulations {victor}", "You're a big winner today!", "OK");
 
         ResetGame();
     }

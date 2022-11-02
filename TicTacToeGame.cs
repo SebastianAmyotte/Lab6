@@ -67,6 +67,10 @@ internal class TicTacToeGame
         }
     }
 
+    /// <summary>
+    /// Increments the score of the respective victor if they win
+    /// </summary>
+    /// <param name="victor">Player that has won</param>
     public void IncrementScore(Player victor)
     {
         if(victor == Player.X)
