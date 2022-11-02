@@ -68,21 +68,6 @@ internal class TicTacToeGame
     }
 
     /// <summary>
-    /// Increments the score of the respective victor if they win
-    /// </summary>
-    /// <param name="victor">Player that has won</param>
-    public void IncrementScore(Player victor)
-    {
-        if(victor == Player.X)
-        {
-            scores[1]++;
-        } else
-        {
-            scores[0]++;
-        }
-    }
-
-    /// <summary>
     /// Resets the game
     /// </summary>
     public TicTacToeGame()
@@ -121,7 +106,7 @@ internal class TicTacToeGame
     /// Returns Player.X or Player.O if there is a winner, Player.Nobody if nobody's won, Player.Both if there's a tie
     /// This method is too long --  refactor it to make it more compact.
     /// </summary>
-    /// <returns>The player that won</returns>
+    /// <returns></returns>
     public Player IsThereAWinner()
     {
         int rowSum;
