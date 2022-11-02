@@ -9,7 +9,6 @@
  * 
  */
 
-using Lab6Starter;
 
 
 /// <summary>
@@ -58,6 +57,7 @@ public partial class MainPage : ContentPage
 
         if (gameOver)
         {
+            ticTacToe.IncrementScore(victor);
             CelebrateVictory(victor);
 
         }
@@ -100,9 +100,15 @@ public partial class MainPage : ContentPage
         XScoreLBL.Text = String.Format("X's Score: {0}", ticTacToe.XScore);
         OScoreLBL.Text = String.Format("O's Score: {0}", ticTacToe.OScore);
 
+        DisplayAlert($"Congratulations, {victor}!", "You're a big winner today!", "OK");
+
         ResetGame();
     }
-
+    /// <summary>
+    /// Button handler for reset button
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void ResetButton(object sender, EventArgs e)
     {
         //Reset game logic
