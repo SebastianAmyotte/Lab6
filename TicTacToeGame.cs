@@ -121,7 +121,7 @@ internal class TicTacToeGame
     /// Returns Player.X or Player.O if there is a winner, Player.Nobody if nobody's won, Player.Both if there's a tie
     /// This method is too long --  refactor it to make it more compact.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>The player that won</returns>
     public Player IsThereAWinner()
     {
         int rowSum;

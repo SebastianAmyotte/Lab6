@@ -104,7 +104,11 @@ public partial class MainPage : ContentPage
 
         ResetGame();
     }
-
+    /// <summary>
+    /// Button handler for reset button
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void ResetButton(object sender, EventArgs e)
     {
         //Reset game logic
