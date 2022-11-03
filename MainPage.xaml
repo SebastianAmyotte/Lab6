@@ -5,11 +5,7 @@
 
     <ScrollView>
         <VerticalStackLayout>
-
-            <Label x:Name="XScoreLBL" Text="X's Score: 0"   VerticalOptions="Center" FontSize="24"/>
-            <Label x:Name="OScoreLBL" Text="Y's Score: 0"  VerticalOptions="Center" FontSize="24"/>
-
-            <Grid Background="Chartreuse" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Grid Background="#2C3D55" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="5" Margin="20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -20,18 +16,35 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="Orange" Grid.Row="0" Grid.Column="0" x:Name="Tile00" Text="" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="24"/>
-                <Button HeightRequest = "100" WidthRequest="100"  BackgroundColor="Yellow" Grid.Row="0" Grid.Column="1" x:Name="Tile01" Text="" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="24"/>
-                <Button HeightRequest = "100" WidthRequest="100"  BackgroundColor="Green" Grid.Row="0" Grid.Column="2" x:Name="Tile02" Text="" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="24"/>
-                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="Blue" Grid.Row="1" Grid.Column="0" x:Name="Tile10" Text="" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="24"/>
-                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="Violet" Grid.Row="1" Grid.Column="1" x:Name="Tile11" Text="" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="24"/>
-                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="Red" Grid.Row="1" Grid.Column="2" x:Name="Tile12" Text="" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="24"/>
-                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="Orange" Grid.Row="2" Grid.Column="0" x:Name="Tile20" Text="" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="24"/>
-                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="Yellow" Grid.Row="2" Grid.Column="1" x:Name="Tile21" Text="" HorizontalOptions="Center" VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="24"/>
-                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="Green" Grid.Row="2" Grid.Column="2" x:Name="Tile22" Text="" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="24"/>
-                
+                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="#86BBD8" Grid.Row="0" Grid.Column="0" x:Name="Tile00" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="24" Margin="0,0,2,2" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="#86BBD8" Grid.Row="0" Grid.Column="1" x:Name="Tile01" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="24" Margin="2,0,2,2" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="#86BBD8" Grid.Row="0" Grid.Column="2" x:Name="Tile02" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="24" Margin="2,0,0,2" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="#86BBD8" Grid.Row="1" Grid.Column="0" x:Name="Tile10" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="24" Margin="0,2,2,2" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="#86BBD8" Grid.Row="1" Grid.Column="1" x:Name="Tile11" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="24" Margin="2,2,2,2" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="#86BBD8" Grid.Row="1" Grid.Column="2" x:Name="Tile12" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="24" Margin="2,2,0,2" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="#86BBD8" Grid.Row="2" Grid.Column="0" x:Name="Tile20" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="24" Margin="0,2,2,0" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="#86BBD8" Grid.Row="2" Grid.Column="1" x:Name="Tile21" Text="" TextColor="#2F4858" HorizontalOptions="Center" VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="24" Margin="2,2,2,0" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="#86BBD8" Grid.Row="2" Grid.Column="2" x:Name="Tile22" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="24" Margin="2,2,0,0" CornerRadius="0"/>
+
             </Grid>
-            <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="Gray" Grid.Row="3" Grid.Column="1" x:Name="reset" Text="Reset" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="ResetButton" FontSize="24"/>
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="0,0,20,0">
+                    <Label x:Name="XScoreLBL" Text="X's Score: 0"   VerticalOptions="Center" FontSize="24"/>
+                    <Label x:Name="OScoreLBL" Text="Y's Score: 0"  VerticalOptions="Center" FontSize="24"/>
+                </VerticalStackLayout>
+                <Button HeightRequest = "50"
+                    WidthRequest="100"
+                    BackgroundColor="#ADD7F6"
+                    x:Name="reset"
+                    Text="Reset"
+                    TextColor="#2C3D55"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Clicked="ResetButton"
+                    FontSize="24"
+                    BorderColor="Black"
+                    BorderWidth="3"/>
+            </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 
