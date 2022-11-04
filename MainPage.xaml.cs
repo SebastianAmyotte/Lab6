@@ -1,4 +1,6 @@
-﻿namespace Lab6Starter;
+﻿using System.Reflection;
+
+namespace Lab6Starter;
 /**
  * 
  * Name: 
@@ -18,6 +20,8 @@ public partial class MainPage : ContentPage
 {
     TicTacToeGame ticTacToe; // model class
     Button[,] grid;          // stores the buttons
+    bool isPlaying = false;  // bool var that determines if the game is being played
+    TimeOnly time = new();   // can represent time for the timer
 
 
     /// <summary>
@@ -42,6 +46,13 @@ public partial class MainPage : ContentPage
         Player victor;
         Player currentPlayer = ticTacToe.CurrentPlayer;
 
+        // if the game just started, we will change isPlaying and start running the timer
+        if (!isPlaying)
+        {
+            isPlaying = true;
+            RunTimer();
+        }
+
         Button button = (Button)sender;
         int row;
         int col;
@@ -49,7 +60,7 @@ public partial class MainPage : ContentPage
         FindTappedButtonRowCol(button, out row, out col);
         if (button.Text.ToString() != "")
         { // if the button has an X or O, bail
-            DisplayAlert("Illegal move", "Fill this in with something more meaningful", "OK");
+            DisplayAlert("Illegal move!", "That spot is already taken!", "Oh, sorry");
             return;
         }
         button.Text = currentPlayer.ToString();
@@ -59,7 +70,6 @@ public partial class MainPage : ContentPage
         {
             ticTacToe.IncrementScore(victor);
             CelebrateVictory(victor);
-
         }
     }
 
@@ -94,14 +104,14 @@ public partial class MainPage : ContentPage
     /// <summary>
     /// Celebrates victory, displaying a message box and resetting the game
     /// </summary>
-    private void CelebrateVictory(Player victor)
+    private async void CelebrateVictory(Player victor)
     {
         //MessageBox.Show(Application.Current.MainWindow, String.Format("Congratulations, {0}, you're the big winner today", victor.ToString()));
         XScoreLBL.Text = String.Format("X's Score: {0}", ticTacToe.XScore);
         OScoreLBL.Text = String.Format("O's Score: {0}", ticTacToe.OScore);
 
-        DisplayAlert($"Congratulations, {victor}!", "You're a big winner today!", "OK");
-
+        PauseTimer();
+        await DisplayAlert($"Congratulations, {victor}!", "You're a big winner today!", "OK");
         ResetGame();
     }
     /// <summary>
@@ -111,7 +121,7 @@ public partial class MainPage : ContentPage
     /// <param name="e"></param>
     private void ResetButton(object sender, EventArgs e)
     {
-        //Reset game logic
+        // Reset game logic
         ResetGame();
     }
 
@@ -120,6 +130,8 @@ public partial class MainPage : ContentPage
     /// </summary>
     private void ResetGame()
     {
+        ResetTimer();
+
         //Reset lavels in all buttons
         for (int i = 0; i < 3; i++)
         {
@@ -131,6 +143,46 @@ public partial class MainPage : ContentPage
         ticTacToe.ResetGame();
     }
 
+    /// <summary>
+    /// Runs the timer
+    /// </summary>
+    private async void RunTimer()
+    {
+        while (isPlaying)
+        {
+            time = time.Add(TimeSpan.FromSeconds(1));
+            SetTime();
+            await Task.Delay(TimeSpan.FromSeconds(1));
+        }
+    }
+
+    /// <summary>
+    /// Stops the timer after game is over so that it displays
+    /// at the end of the game rather than continuing
+    /// </summary>
+    private void PauseTimer()
+    {
+        isPlaying = false;
+        RunTimer();
+    }
+
+    /// <summary>
+    /// Sets the text of the timer button
+    /// </summary>
+    private void SetTime()
+    {
+        timeLabel.Text = $"{time.Minute:00}:{time.Second:00}";
+    }
+
+    /// <summary>
+    /// Resets the timer and isPlaying variable
+    /// </summary>
+    private void ResetTimer()
+    {
+        isPlaying = false;
+        time = new TimeOnly();
+        SetTime();
+    }
 }
 
 

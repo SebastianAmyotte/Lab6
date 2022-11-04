@@ -4,7 +4,18 @@
              x:Class="Lab6Starter.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout VerticalOptions="Center">
+            <!--The timer label-->
+            <Button x:Name="timeLabel"
+                   WidthRequest="200"
+                   Text="0:00"
+                   FontSize="Header"
+                   TextColor="#2C3D55"
+                   HorizontalOptions="Center"
+                   BackgroundColor="#ADD7F6"
+                   Padding="15,15,15,15"
+                   BorderColor="#2C3D55"
+                   BorderWidth="3"/>
             <Grid Background="#2C3D55" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="5" Margin="20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -28,10 +39,12 @@
 
             </Grid>
             <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                <!--The Score labels-->
                 <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="0,0,20,0">
                     <Label x:Name="XScoreLBL" Text="X's Score: 0"   VerticalOptions="Center" FontSize="24"/>
                     <Label x:Name="OScoreLBL" Text="Y's Score: 0"  VerticalOptions="Center" FontSize="24"/>
                 </VerticalStackLayout>
+                <!--The Reset Button-->
                 <Button HeightRequest = "50"
                     WidthRequest="100"
                     BackgroundColor="#ADD7F6"
@@ -42,7 +55,7 @@
                     VerticalOptions="Center"
                     Clicked="ResetButton"
                     FontSize="24"
-                    BorderColor="Black"
+                    BorderColor="#2C3D55"
                     BorderWidth="3"/>
             </HorizontalStackLayout>
         </VerticalStackLayout>
