@@ -41,7 +41,7 @@
                     <Button HeightRequest = "100" WidthRequest="100" BackgroundColor="#86BBD8" Grid.Row="2" Grid.Column="2" x:Name="Tile22" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="Header" Margin="2,2,0,0" CornerRadius="0"/>
                 </Grid>
                 
-                <ListView x:Name="GamesLV" HeightRequest="700" ItemsSource="{Binding Games}"
+                <ListView x:Name="GamesLV" HeightRequest="700"
                           AbsoluteLayout.LayoutBounds="1,0"
                           AbsoluteLayout.LayoutFlags="PositionProportional"
                           MaximumHeightRequest="300"
@@ -62,13 +62,18 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
 
                                     <Label Grid.Row="0" Grid.Column="0" Text="Victor: " TextColor="Black" FontSize="20.0"/>
-                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Winner}" TextColor="Black" FontSize="20.0"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text=" " TextColor="Black" FontSize="20.0"/>
+                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding Winner}" TextColor="Black" FontSize="20.0"/>
+                                    <Label Grid.Row="0" Grid.Column="3" Text=" - " TextColor="Black" FontSize="20.0"/>
 
-                                    <Label Grid.Row="0" Grid.Column="2" Text="Time Taken: " TextColor="Black" FontSize="20.0"/>
-                                    <Label Grid.Row="0" Grid.Column="3" Text="{Binding Time}" TextColor="Black" FontSize="20.0"/>
+                                    <Label Grid.Row="0" Grid.Column="4" Text="Time Taken: " TextColor="Black" FontSize="20.0"/>
+                                    <Label Grid.Row="0" Grid.Column="5" Text=" " TextColor="Black" FontSize="20.0"/>
+                                    <Label Grid.Row="0" Grid.Column="6" Text="{Binding Time}" TextColor="Black" FontSize="20.0"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>

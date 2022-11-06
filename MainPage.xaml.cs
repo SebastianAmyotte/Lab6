@@ -26,6 +26,7 @@ public partial class MainPage : ContentPage
     Button[,] grid;          // stores the buttons
     bool isPlaying = false;  // bool var that determines if the game is being played
     TimeOnly time = new();   // can represent time for the time
+    GamesViewModel games;   // games object to allow adding to the ListView ItemSource
     
 
 
@@ -37,7 +38,8 @@ public partial class MainPage : ContentPage
         InitializeComponent();
         ticTacToe = new TicTacToeGame();
         grid = new Button[TicTacToeGame.GRID_SIZE, TicTacToeGame.GRID_SIZE] { { Tile00, Tile01, Tile02 }, { Tile10, Tile11, Tile12 }, { Tile20, Tile21, Tile22 } };
-        BindingContext = new GamesViewModel();      // adds the binding context for the MainPage's LV
+        games = new GamesViewModel();           // creates a games object so we can add to the ListView
+        GamesLV.ItemsSource = games.GetGames(); // Sets the ItemSource of the ListView
     }
 
     /// <summary>
@@ -118,6 +120,7 @@ public partial class MainPage : ContentPage
 
         PauseTimer();
         await DisplayAlert($"Congratulations, {victor}!", "You're a big winner today!", "OK");
+        games.AddGame(new Game { Winner = $"{victor}", Time = $"{timeLabel.Text}" });
         ResetGame();
     }
     /// <summary>
