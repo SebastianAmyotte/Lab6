@@ -1,4 +1,7 @@
-﻿using System.Reflection;
+﻿using System.Collections;
+using System.Collections.ObjectModel;
+using System.Reflection;
+using static Lab6Starter.GamesViewModel;
 
 namespace Lab6Starter;
 /**
@@ -16,12 +19,15 @@ namespace Lab6Starter;
 /// <summary>
 /// The MainPage, this is a 1-screen app
 /// </summary>
+/// 
 public partial class MainPage : ContentPage
 {
     TicTacToeGame ticTacToe; // model class
     Button[,] grid;          // stores the buttons
     bool isPlaying = false;  // bool var that determines if the game is being played
-    TimeOnly time = new();   // can represent time for the timer
+    TimeOnly time = new();   // can represent time for the time
+    GamesViewModel games;   // games object to allow adding to the ListView ItemSource
+    
 
 
     /// <summary>
@@ -32,6 +38,8 @@ public partial class MainPage : ContentPage
         InitializeComponent();
         ticTacToe = new TicTacToeGame();
         grid = new Button[TicTacToeGame.GRID_SIZE, TicTacToeGame.GRID_SIZE] { { Tile00, Tile01, Tile02 }, { Tile10, Tile11, Tile12 }, { Tile20, Tile21, Tile22 } };
+        games = new GamesViewModel();           // creates a games object so we can add to the ListView
+        GamesLV.ItemsSource = games.GetGames(); // Sets the ItemSource of the ListView
     }
 
     /// <summary>
@@ -112,6 +120,7 @@ public partial class MainPage : ContentPage
 
         PauseTimer();
         await DisplayAlert($"Congratulations, {victor}!", "You're a big winner today!", "OK");
+        games.AddGame(new Game { Winner = $"{victor}", Time = $"{timeLabel.Text}" });
         ResetGame();
     }
     /// <summary>
