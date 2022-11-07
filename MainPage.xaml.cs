@@ -36,6 +36,7 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+        RandomizeGameFieldColor(null, null);
         ticTacToe = new TicTacToeGame();
         grid = new Button[TicTacToeGame.GRID_SIZE, TicTacToeGame.GRID_SIZE] { { Tile00, Tile01, Tile02 }, { Tile10, Tile11, Tile12 }, { Tile20, Tile21, Tile22 } };
         games = new GamesViewModel();           // creates a games object so we can add to the ListView
@@ -79,6 +80,12 @@ public partial class MainPage : ContentPage
             ticTacToe.IncrementScore(victor);
             CelebrateVictory(victor);
         }
+    }
+
+    Random rng = new Random();
+    private void RandomizeGameFieldColor(object sender, EventArgs e)
+    {
+        Resources["randomColor"] = Color.FromRgb(rng.Next(100, 256), rng.Next(100, 256), rng.Next(100, 256));
     }
 
     /// <summary>
