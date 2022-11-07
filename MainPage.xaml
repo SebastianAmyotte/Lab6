@@ -22,104 +22,108 @@
                    BorderColor="#2C3D55"
                    HorizontalOptions="Center"
                    Padding="15,15,15,15"
+                   Margin="10"
                    BorderWidth="3"
                    Style="{DynamicResource buttonBackgrounds}"
                    />
-            <AbsoluteLayout WidthRequest="1000" HorizontalOptions="Center">
-                <Grid Background="#2C3D55" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="5" Margin="20"
+            <Grid Background="#2C3D55" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="5" Margin="20"
                       AbsoluteLayout.LayoutBounds="0.5,0.5"
                       AbsoluteLayout.LayoutFlags="PositionProportional">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="0" Grid.Column="0" x:Name="Tile00" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="Header" Margin="0,0,2,2" CornerRadius="0"/>
-                    <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="0" Grid.Column="1" x:Name="Tile01" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="Header" Margin="2,0,2,2" CornerRadius="0"/>
-                    <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="0" Grid.Column="2" x:Name="Tile02" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="Header" Margin="2,0,0,2" CornerRadius="0"/>
-                    <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="1" Grid.Column="0" x:Name="Tile10" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="Header" Margin="0,2,2,2" CornerRadius="0"/>
-                    <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="1" Grid.Column="1" x:Name="Tile11" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="Header" Margin="2,2,2,2" CornerRadius="0"/>
-                    <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="1" Grid.Column="2" x:Name="Tile12" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="Header" Margin="2,2,0,2" CornerRadius="0"/>
-                    <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="2" Grid.Column="0" x:Name="Tile20" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="Header" Margin="0,2,2,0" CornerRadius="0"/>
-                    <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="2" Grid.Column="1" x:Name="Tile21" Text="" TextColor="#2F4858" HorizontalOptions="Center" VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="Header" Margin="2,2,2,0" CornerRadius="0"/>
-                    <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="2" Grid.Column="2" x:Name="Tile22" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="Header" Margin="2,2,0,0" CornerRadius="0"/>
-                </Grid>
-                
-                <ListView x:Name="GamesLV" HeightRequest="700"
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="0" Grid.Column="0" x:Name="Tile00" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="Header" Margin="0,0,2,2" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="0" Grid.Column="1" x:Name="Tile01" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="Header" Margin="2,0,2,2" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="0" Grid.Column="2" x:Name="Tile02" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="Header" Margin="2,0,0,2" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="1" Grid.Column="0" x:Name="Tile10" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="Header" Margin="0,2,2,2" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="1" Grid.Column="1" x:Name="Tile11" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="Header" Margin="2,2,2,2" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="1" Grid.Column="2" x:Name="Tile12" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="Header" Margin="2,2,0,2" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="2" Grid.Column="0" x:Name="Tile20" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="Header" Margin="0,2,2,0" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="2" Grid.Column="1" x:Name="Tile21" Text="" TextColor="#2F4858" HorizontalOptions="Center" VerticalOptions="Center"  Clicked="HandleButtonClick" FontSize="Header" Margin="2,2,2,0" CornerRadius="0"/>
+                <Button HeightRequest = "100" WidthRequest="100" Style="{DynamicResource buttonBackgrounds}" Grid.Row="2" Grid.Column="2" x:Name="Tile22" Text="" TextColor="#2F4858" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleButtonClick" FontSize="Header" Margin="2,2,0,0" CornerRadius="0"/>
+            </Grid>
+            <!--The Score labels-->
+            <HorizontalStackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label x:Name="XScoreLBL" Text="X's Score: 0"   VerticalOptions="Center" FontSize="24"/>
+                    <Label x:Name="OScoreLBL" Text="Y's Score: 0"  VerticalOptions="Center" FontSize="24"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <!--The Reset Button-->
+                    <Button HeightRequest = "50"
+                        WidthRequest="100"
+                        Style="{DynamicResource buttonBackgrounds}"
+                        x:Name="reset"
+                        Text="Reset"
+                        TextColor="#2C3D55"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Clicked="ResetButton"
+                        FontSize="12"
+                        BorderColor="#2C3D55"
+                        BorderWidth="3"
+                        Margin="10,0,0,10"/>
+                    <!--Randomize Colors Button-->
+                    <Button HeightRequest="50"
+                       x:Name="newColors"
+                       WidthRequest="100"
+                       Text="New color!"
+                       FontSize="12"
+                       TextColor="#2C3D55"
+                       HorizontalOptions="Center"
+                       Style="{DynamicResource buttonBackgrounds}"
+                       BorderColor="#2C3D55"
+                       BorderWidth="3"
+                       Clicked = "RandomizeGameFieldColor"
+                       Margin="10,0,0,10"/>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+            <Label x:Name="GameHistoryLabel" Text="Previous Games" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Header" Margin="0,25,0,0" FontAttributes="Bold"/>
+            <ListView x:Name="GamesLV" HeightRequest="700"
                           AbsoluteLayout.LayoutBounds="1,0"
                           AbsoluteLayout.LayoutFlags="PositionProportional"
                           MaximumHeightRequest="300"
                           WidthRequest="300"
                           SelectionMode="None"
                           Margin="20">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid RowSpacing="1" ColumnSpacing="1" Padding="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowSpacing="1" ColumnSpacing="1" Padding="10">
 
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
 
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Row="0" Grid.Column="0" Text="Victor: " TextColor="Black" FontSize="20.0"/>
-                                    <Label Grid.Row="0" Grid.Column="1" Text=" " TextColor="Black" FontSize="20.0"/>
-                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding Winner}" TextColor="Black" FontSize="20.0"/>
-                                    <Label Grid.Row="0" Grid.Column="3" Text=" - " TextColor="Black" FontSize="20.0"/>
+                                <Label Grid.Row="0" Grid.Column="0" Text="Victor: " TextColor="Black" FontSize="20.0"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text=" " TextColor="Black" FontSize="20.0"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Winner}" TextColor="Black" FontSize="20.0"/>
+                                <Label Grid.Row="0" Grid.Column="3" Text=" - " TextColor="Black" FontSize="20.0"/>
 
-                                    <Label Grid.Row="0" Grid.Column="4" Text="Time Taken: " TextColor="Black" FontSize="20.0"/>
-                                    <Label Grid.Row="0" Grid.Column="5" Text=" " TextColor="Black" FontSize="20.0"/>
-                                    <Label Grid.Row="0" Grid.Column="6" Text="{Binding Time}" TextColor="Black" FontSize="20.0"/>
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </AbsoluteLayout>
-            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
-                <!--The Score labels-->
-                <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="0,0,20,0">
-                    <Label x:Name="XScoreLBL" Text="X's Score: 0"   VerticalOptions="Center" FontSize="24"/>
-                    <Label x:Name="OScoreLBL" Text="Y's Score: 0"  VerticalOptions="Center" FontSize="24"/>
-                </VerticalStackLayout>
-                <!--The Reset Button-->
-                <Button HeightRequest = "50"
-                    WidthRequest="100"
-                    Style="{DynamicResource buttonBackgrounds}"
-                    x:Name="reset"
-                    Text="Reset"
-                    TextColor="#2C3D55"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    Clicked="ResetButton"
-                    FontSize="12"
-                    BorderColor="#2C3D55"
-                    BorderWidth="3"/>
-            </HorizontalStackLayout>
-            <Button x:Name="newColors"
-                   WidthRequest="200"
-                   Text="New color!"
-                   FontSize="20"
-                   TextColor="#2C3D55"
-                   HorizontalOptions="Center"
-                   Style="{DynamicResource buttonBackgrounds}"
-                   Padding="15,15,15,15"
-                   BorderColor="#2C3D55"
-                   BorderWidth="3"
-                   Clicked = "RandomizeGameFieldColor"/>
+                                <Label Grid.Row="0" Grid.Column="4" Text="Time Taken: " TextColor="Black" FontSize="20.0"/>
+                                <Label Grid.Row="0" Grid.Column="5" Text=" " TextColor="Black" FontSize="20.0"/>
+                                <Label Grid.Row="0" Grid.Column="6" Text="{Binding Time}" TextColor="Black" FontSize="20.0"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
