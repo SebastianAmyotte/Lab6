@@ -73,10 +73,11 @@ internal class TicTacToeGame
     /// <param name="victor">Player that has won</param>
     public void IncrementScore(Player victor)
     {
-        if(victor == Player.X)
+        if(victor == Player.X || victor == Player.Both)
         {
             scores[1]++;
-        } else
+        }
+        if (victor == Player.O || victor == Player.Both)
         {
             scores[0]++;
         }
@@ -119,89 +120,101 @@ internal class TicTacToeGame
 
     /// <summary>
     /// Returns Player.X or Player.O if there is a winner, Player.Nobody if nobody's won, Player.Both if there's a tie
-    /// This method is too long --  refactor it to make it more compact.
     /// </summary>
     /// <returns>The player that won</returns>
     public Player IsThereAWinner()
     {
-        int rowSum;
-        int colSum;
-        int diagonalSum;
-        Boolean gridFilled = true;                   // if grid is filled, and no winner, there's a tie
-
-        for (int r = 0; r < GRID_SIZE; r++)         // check the row sums
+        Player potentialWinner;
+        //Check all straight axis
+        potentialWinner = WinnerOnStraightAxis();
+        if (potentialWinner != Player.Nobody)
         {
-            rowSum = 0;
-            for (int c = 0; c < GRID_SIZE; c++)
-            {
-                rowSum += (int)grid[r, c];
-                if (grid[r, c] == Player.Nobody)
-                {
-                    gridFilled = false;
-                }
-            }
-            if (rowSum == 0)
-            {
-                return Player.O;
-            }
-            else if (rowSum == GRID_SIZE)
-            {
-                return Player.X;
-            }
+            return potentialWinner;
         }
-
-        for (int c = 0; c < GRID_SIZE; c++)         // check the column sums
+        //Check diagonals
+        potentialWinner = WinnerOnDiagonalAxis();
+        if (potentialWinner != Player.Nobody)
         {
-            colSum = 0;
-            for (int r = 0; r < GRID_SIZE; r++)
-            {
-                colSum += (int)grid[r, c];
-            }
-            if (colSum == 0)
-            {
-                return Player.O;
-            }
-            else if (colSum == GRID_SIZE)
-            {
-                return Player.X;
-            }
+            return potentialWinner;
         }
-
-        diagonalSum = 0;                            // check the diagonal sums
-
-        for (int r = 0; r < GRID_SIZE; r++)
-        {
-            diagonalSum += (int)grid[r, r];
-        }
-
-        if (diagonalSum == 0)
-        {
-            return Player.O;
-        }
-        else if (diagonalSum == GRID_SIZE)
-        {
-            return Player.X;
-        }
-
-        diagonalSum = 0;                               // check off-diagonal sums here
-
-        for (int r = 0; r < GRID_SIZE; r++)
-        {
-            diagonalSum += (int)grid[r, GRID_SIZE - 1 - r];
-        }
-
-        if (diagonalSum == 0)
-        {
-            return Player.O;
-        }
-        else if (diagonalSum == GRID_SIZE)
-        {
-            return Player.X;
-        }
-
-        return gridFilled ? Player.Both : Player.Nobody;
+        //No winner found, check for a filled grid condition
+        return IsGridFilled() ? Player.Both : potentialWinner;
     }
 
+    public Player WinnerOnDiagonalAxis()
+    {
+        int sumTopLeftBottomRight = 0;
+        int sumBottomLeftTopRight = 0;
+        for (int i = 0; i < GRID_SIZE; i++)
+        {
+            sumTopLeftBottomRight += (int)grid[i, i];
+            sumBottomLeftTopRight += (int)grid[GRID_SIZE - i - 1, i];
+        }
+        //Check for a winner
+        if (sumTopLeftBottomRight == 0 || sumBottomLeftTopRight == 0)
+        {
+            return Player.O;
+        }
+        else if (sumTopLeftBottomRight == GRID_SIZE || sumBottomLeftTopRight == GRID_SIZE)
+        {
+            return Player.X;
+        }
+        //If no winner return no one
+        return Player.Nobody;
+    }
+
+    public Player WinnerOnStraightAxis()
+    {
+        Player verticalPotentialWinner = Player.Nobody;
+        Player horizontalPotentialWinner = Player.Nobody;
+        for (int i = 0; i < GRID_SIZE; i++)
+        {
+            //Check for a vertical winner
+            verticalPotentialWinner = grid[i, 0];
+            for (int j = 1; j < GRID_SIZE && verticalPotentialWinner != Player.Nobody; j++)
+            {
+                if (verticalPotentialWinner != grid[i, j])
+                {
+                    verticalPotentialWinner = Player.Nobody;
+                }
+            }
+            //Check for a horizontal winner
+            horizontalPotentialWinner = grid[0, i];
+            for (int j = 1; j < GRID_SIZE && horizontalPotentialWinner != Player.Nobody; j++)
+            {
+                if (horizontalPotentialWinner != grid[j, i])
+                {
+                    horizontalPotentialWinner = Player.Nobody;
+                }
+            }
+            //Check for a victor so far
+            if (verticalPotentialWinner != Player.Nobody)
+            {
+                return verticalPotentialWinner;
+            }
+            else if (horizontalPotentialWinner != Player.Nobody)
+            {
+                return horizontalPotentialWinner;
+            }
+        }
+        return Player.Nobody;
+    }
+
+    public bool IsGridFilled()
+    {
+        bool gridFilled = true;
+        for (int i = 0; i < GRID_SIZE && gridFilled; i++)
+        {
+            for (int j = 0; j < GRID_SIZE && gridFilled; j++)
+            {
+                //Check every square to see if it's filled
+                //If there is a square yet to fill, quit the loop
+                gridFilled = grid[i, j] != Player.Nobody;
+            }
+        }
+        return gridFilled;
+    }
+    
     /// <summary>
     /// Resets the grid and sets the current player to X
     /// </summary>
