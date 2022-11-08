@@ -6,11 +6,11 @@ using static Lab6Starter.GamesViewModel;
 namespace Lab6Starter;
 /**
  * 
- * Name: 
- * Date: How about this?
- * Description:
- * Bugs:
- * Reflection:
+ * Name: Sebastian Amyotte + Paul 
+ * Date: 11/7/2022
+ * Description: Lab 6 Software Engineering
+ * Bugs: None, we believe
+ * Reflection: A lot of good practice for XAML, as well as practicing binding properties
  * 
  */
 

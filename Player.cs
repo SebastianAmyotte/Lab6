@@ -2,10 +2,10 @@
 
 /**
  * 
- * Name: 
- * Date:
- * Description:
- * Bugs: Did you miss this?
+ * Author: Professor Rogers
+ * Date: 11/8/2022
+ * Description: Player enumerable class
+ * Bugs: Did you miss this? No 😎
  * Reflection:
  * 
  */

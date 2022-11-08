@@ -8,12 +8,16 @@ namespace Lab6Starter;
 
 /**
  * 
- * Name: 
- * Date:
- * Description:
- * Bugs:
- * Reflection: The most important bit ...
- * 
+ * Name: Sebastian Amyotte, Paul Hwang, Michael Rogers
+ * Date: 11/7/2022
+ * Description: Game logic for a good ol' game of Tic Tac Toe
+ * Bugs: None, we believe
+ * Reflection: Refactoring the IsThereAWinner method into smaller
+ * methods felt like the best thing to do. There is definitely
+ * a better algorithm I could have written, but for the sake
+ * of readability over (extremely) small performance losses,
+ * I will keep the code like this instead - S.A.
+ * We implemented all bonus point features except for the database
  */
 
 /// <summary>
@@ -141,6 +145,12 @@ internal class TicTacToeGame
         return IsGridFilled() ? Player.Both : potentialWinner;
     }
 
+    /// <summary>
+    ///  Checks for a winner on the diagonal axis
+    /// </summary>
+    /// <returns>
+    /// Returns the winning player, or Player.none if no victor
+    /// </returns>
     public Player WinnerOnDiagonalAxis()
     {
         int sumTopLeftBottomRight = 0;
@@ -163,6 +173,12 @@ internal class TicTacToeGame
         return Player.Nobody;
     }
 
+    /// <summary>
+    ///  Checks every straight axis (horizontal and vertical) for winners
+    /// </summary>
+    /// <returns>
+    /// Returns the winning player, or Player.none if no victor
+    /// </returns>
     public Player WinnerOnStraightAxis()
     {
         Player verticalPotentialWinner = Player.Nobody;
@@ -200,6 +216,12 @@ internal class TicTacToeGame
         return Player.Nobody;
     }
 
+    /// <summary>
+    /// Checks to see if the grid has been completely filled and no possible moves exist
+    /// </summary>
+    /// <returns>
+    /// A boolean, TRUE if the grid is full, FALSE otherwise
+    /// </returns>
     public bool IsGridFilled()
     {
         bool gridFilled = true;

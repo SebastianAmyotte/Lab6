@@ -1,16 +1,4 @@
 ﻿namespace Lab6Starter;
-
-/**
- * 
- * Name: 
- * Date:
- * Description: And this?
- * Bugs:
- * Reflection:
- * 
- */
-
-
 public static class MauiProgram
 {
 	public static MauiApp CreateMauiApp()
