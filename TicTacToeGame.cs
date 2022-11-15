@@ -38,6 +38,17 @@ internal class TicTacToeGame
         set;
     }
 
+    public void DumpBoard()
+    {
+        for (int i = 0; i < GRID_SIZE; i++)
+        {
+            for (int j = 0; j < GRID_SIZE; j++)
+            {
+                Console.WriteLine("Grid[i,j]: "+ grid[i, j]);
+            }
+        }
+    }
+
     // can access TicTacToeGame instance using [ , ]
     public Player this[int row, int col]
     {

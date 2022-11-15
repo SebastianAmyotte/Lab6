@@ -43,6 +43,18 @@ public partial class MainPage : ContentPage
         GamesLV.ItemsSource = games.GetGames(); // Sets the ItemSource of the ListView
     }
 
+    public void DumpBoard()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                Console.WriteLine("Grid[i,j]: " + grid[i, j]);
+            }
+        }
+    }
+
+
     /// <summary>
     /// Handles button clicks - changes the button to an X or O (depending on whose turn it is)
     /// Checks to see if there is a victory - if so, invoke 
@@ -52,6 +64,10 @@ public partial class MainPage : ContentPage
     /// <param name="e"></param>
     private void HandleButtonClick(object sender, EventArgs e)
     {
+        Console.WriteLine("UI: ");
+        DumpBoard();
+        Console.WriteLine("Game logic: ");
+        ticTacToe.DumpBoard();
         Player victor;
         Player currentPlayer = ticTacToe.CurrentPlayer;
 
